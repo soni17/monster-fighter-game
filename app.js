@@ -16,21 +16,22 @@ new Vue({
       if (this.checkWin()){
         return;
       }
-
-    this.monsterAttacks();
-
+      this.monsterAttacks();
     },
     specialAttack: function(){
       this.monsterHealth -= this.calculateDamage(10,20);
       if (this.checkWin()){
         return;
       }
-
       this.monsterAttacks();
-
     },
     heal: function(){
-
+      if(this.playerHealth <= 90){
+        this.playerHealth += 10;
+      }else {
+        this.playerHealth = 100;
+      }
+      this.monsterAttacks();
     },
     giveUp: function(){
 
